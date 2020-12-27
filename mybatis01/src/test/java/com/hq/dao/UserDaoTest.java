@@ -5,7 +5,9 @@ import com.hq.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UserDaoTest {
 
@@ -50,7 +52,7 @@ public class UserDaoTest {
         //方式一 执行
         try {
             UserDao userDao = sqlSession.getMapper(UserDao.class);
-            int res = userDao.insertUser(new User(3,"hqq",11));
+            int res = userDao.insertUser(new User(6,"hqq",11));
             if (res ==1){
                 System.out.println("插入成功");
             }else {
@@ -95,6 +97,47 @@ public class UserDaoTest {
                 System.out.println("删除成功");
             }else {
                 System.out.println("删除失败");
+            }
+            sqlSession.commit();
+
+        }catch (Exception e){
+            System.out.println(e);
+        }finally {
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public   void  addUser(){
+            SqlSession sqlSession = MybatisUtils.getSqlSession();
+            try {
+                UserDao  userDao = sqlSession.getMapper(UserDao.class);
+                Map<String,Object> map  = new HashMap<String,Object>();
+                map.put("id",2);
+                map.put("name","map");
+                map.put("password",123);
+                int  res = userDao.addUser(map);
+                if (res==1){
+                    System.out.println("插入成功");
+                }else {
+                    System.out.println("插入失败");
+                }
+                sqlSession.commit();
+
+            }catch (Exception e){
+                System.out.println(e);
+            }finally {
+                sqlSession.close();
+            }
+    }
+    @Test
+    public   void  getUserByLike(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        try {
+            UserDao userDao=sqlSession.getMapper(UserDao.class);
+            List<User>  userlist = userDao.getUserListByLike("%h%");
+            for (User user : userlist) {
+                System.out.println(user.getName());
             }
             sqlSession.commit();
 
