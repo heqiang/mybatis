@@ -7,9 +7,9 @@
 <!--日志工厂-->
     <settings>
 <!-- 标准的日志工厂实现-->
-<!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
 <!--  先导入log4j的包-->
-        <setting name="logImpl" value="LOG4J"/>
+<!--        <setting name="logImpl" value="LOG4J"/>-->
     </settings>
 <!-- 优化返回值类型 对返回的全类名起一个别名-->
     <typeAliases>
@@ -31,8 +31,9 @@
             </dataSource>
         </environment>
     </environments>
-<!-- 每一个mapper.xml都需要到这里来注册-->
+<!--绑定注解-->
     <mappers>
-        <mapper resource="com/hq/dao/UserMapper.xml"></mapper>
+        <mapper class="com.hq.dao.UserDao"/>
     </mappers>
+
 </configuration>

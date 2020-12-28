@@ -13,7 +13,7 @@
         select  * from user where name LIKE  #{value}
     </select>
     <select id="getUserBylimit" resultType="user" parameterType="map">
-        select  * from user limit #{startIndex},#{pageSize}
+        select  * from user limit #{start},#{show_num}
     </select>
 <!-- 对象中的属性，可以直接取出来-->
     <insert id="insertUser" parameterType="user" >

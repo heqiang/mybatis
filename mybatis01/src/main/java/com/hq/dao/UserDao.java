@@ -14,9 +14,12 @@ public interface UserDao {
      int  insertUser(User user);
      // 更新用户
      int updateUser(User user);
+     //模糊查询
      List<User> getUserListByLike(String name);
      //删除用户
      int deleteUser(int id);
      // 使用map增加用户
      int addUser(Map<String,Object> map);
+     //分页查询
+     List<User> getUserBylimit(Map<String,Object> map);
 }
