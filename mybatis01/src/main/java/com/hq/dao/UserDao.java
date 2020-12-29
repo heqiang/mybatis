@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface UserDao {
+
 //    获取全部用户
      List<User> getUserList();
      //根据id查询用户
