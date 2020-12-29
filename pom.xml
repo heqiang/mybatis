@@ -16,6 +16,8 @@
         <module>mybatis_03</module>
         <module>mybatis_04</module>
         <module>mybatis_05</module>
+        <module>mybatis</module>
+        <module>mybatis_06</module>
     </modules>
 
 
@@ -24,13 +26,12 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.5.3</version>
-            <scope>compile</scope>
+
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
