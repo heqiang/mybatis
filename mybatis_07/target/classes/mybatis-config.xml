@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties"/>
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+<!-- 显示的开启全局缓存-->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+<!-- 优化返回值类型 对返回的全类名起一个别名-->
+    <typeAliases>
+<!--二者选择一种都ixng-->
+<!--  对返回值的一个类名起一个缩写名字-->
+        <typeAlias type="com.hq.pojo.User" alias="user"/>
+<!-- 扫描实体类的包  通过在实体上增添注解 -->
+<!--        <package name="com.hq.pojo" />-->
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <!-- 事务管理 -->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+<!-- 每一个mapper.xml都需要到这里来注册-->
+    <mappers>
+        <mapper class="com.hq.mapper.UserMapper"/>
+    </mappers>
+</configuration>
