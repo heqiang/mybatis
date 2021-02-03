@@ -9,32 +9,33 @@ import java.util.List;
 
 public class StudentTest {
     @Test
-    public void  getStudentList(){
+    public void getStudentList() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         try {
             StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
-            List<Student> studentList =  studentMapper.getStudentList();
+            List<Student> studentList = studentMapper.getStudentList();
             for (Student student : studentList) {
                 System.out.println(student.getName());
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
-        }finally {
+        } finally {
             sqlSession.close();
         }
     }
+
     @Test
-    public void  getStudentTeacher(){
+    public void getStudentTeacher() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         try {
             StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
-            List<Student> studentList =  studentMapper.getStudentTeacher();
+            List<Student> studentList = studentMapper.getStudentTeacher();
             for (Student student : studentList) {
                 System.out.println(student.getTeacher().getName());
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
-        }finally {
+        } finally {
             sqlSession.close();
         }
     }

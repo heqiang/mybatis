@@ -2,7 +2,7 @@ package com.hq.pojo;
 
 import java.io.Serializable;
 
-public class User  {
+public class User {
     private int id;
     private String name;
     private String password;

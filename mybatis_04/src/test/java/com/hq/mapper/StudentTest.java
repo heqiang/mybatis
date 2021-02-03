@@ -10,7 +10,7 @@ import java.util.List;
 
 public class StudentTest {
     @Test
-    public void  getAllTeacher(){
+    public void getAllTeacher() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         try {
             TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
@@ -18,26 +18,27 @@ public class StudentTest {
             for (Teacher teacher : allTeacher) {
                 System.out.println(teacher.getName());
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
-        }finally {
+        } finally {
             sqlSession.close();
         }
     }
+
     /*
-    * 获取指定老师下的所有学生
-    * */
+     * 获取指定老师下的所有学生
+     * */
     @Test
-    public  void  getAllTeacher_stu(){
+    public void getAllTeacher_stu() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
         List<Teacher> allTeacher_stu = mapper.getAllTeacher_stu(1);
 
         for (Teacher teacher : allTeacher_stu) {
-            System.out.println("老师的姓名："+teacher.getName());
+            System.out.println("老师的姓名：" + teacher.getName());
             List<Student> students = teacher.getStudents();
             for (Student student : students) {
-                System.out.println("学生的姓名："+student.getName());
+                System.out.println("学生的姓名：" + student.getName());
             }
         }
 

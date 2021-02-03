@@ -3,26 +3,26 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.hq.mapper.TeacherMapper">
-<!-- 此处使用的是联表查询相对另一种方法子查询要较为清晰-->
-<!-- 由于 获取的对象是复杂型对象 采取结果集映射的方式进行查询 使用resultMap-->
+    <!-- 此处使用的是联表查询相对另一种方法子查询要较为清晰-->
+    <!-- 由于 获取的对象是复杂型对象 采取结果集映射的方式进行查询 使用resultMap-->
     <select id="getAllTeacher_stu" resultMap="TeacherStudent">
         select t.id tid,t.name tname,s.id sid ,s.name sname
         from teacher t,student s
         where t.id=s.tid and t.id = #{t_id}
     </select>
-<!-- 绑定指定的resultMap -->
+    <!-- 绑定指定的resultMap -->
     <resultMap id="TeacherStudent" type="Teacher">
         <result property="id" column="tid"/>
         <result property="name" column="tname"/>
-    <!--  复杂类型是对象时用association 集合用collection-->
-    <!--   javaType 指定属性的类型  集合中的泛型使用oftype
-        差不多就是association 搭配 javaType
-                collection搭配 oftype
-     -->
+        <!--  复杂类型是对象时用association 集合用collection-->
+        <!--   javaType 指定属性的类型  集合中的泛型使用oftype
+            差不多就是association 搭配 javaType
+                    collection搭配 oftype
+         -->
         <collection property="students" ofType="Student">
-                 <result property="id" column="sid"/>
-                 <result property="name" column="sname"/>
-                 <result property="tid" column="tid"/>
+            <result property="id" column="sid"/>
+            <result property="name" column="sname"/>
+            <result property="tid" column="tid"/>
         </collection>
     </resultMap>
 </mapper>

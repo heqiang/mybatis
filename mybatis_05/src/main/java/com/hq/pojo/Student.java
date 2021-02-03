@@ -2,14 +2,15 @@ package com.hq.pojo;
 
 
 /*
-* 多个学生对应一个老师
-* */
+ * 多个学生对应一个老师
+ * */
 public class Student {
     private int id;
     private String name;
     private Teacher teacher;
 
-    public Student() { }
+    public Student() {
+    }
 
     public Student(int id, String name, Teacher teacher) {
         this.id = id;

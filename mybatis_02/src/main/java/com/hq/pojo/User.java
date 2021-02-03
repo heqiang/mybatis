@@ -3,11 +3,13 @@ package com.hq.pojo;
 //@Alias("user")
 public class User {
 
-    private  int id;
+    private int id;
     private String name;
     private int password;
 
-    public User(){}
+    public User() {
+    }
+
     public User(int id, String name, int password) {
         this.id = id;
         this.name = name;

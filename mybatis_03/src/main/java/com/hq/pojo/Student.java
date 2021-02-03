@@ -5,7 +5,8 @@ public class Student {
     private String name;
     private Teacher teacher;
 
-    public Student() { }
+    public Student() {
+    }
 
     public int getId() {
         return id;

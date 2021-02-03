@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface UserMapper {
 
-    User  queryUserById(@Param("Uid") int id);
+    User queryUserById(@Param("Uid") int id);
 
-    int updateUser(User  user);
+    int updateUser(User user);
 }

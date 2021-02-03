@@ -3,9 +3,10 @@ package com.hq.pojo;
 public class Student {
     private int id;
     private String name;
-    private int tid ;
+    private int tid;
 
-    public Student() { }
+    public Student() {
+    }
 
     public Student(int id, String name, int tid) {
         this.id = id;

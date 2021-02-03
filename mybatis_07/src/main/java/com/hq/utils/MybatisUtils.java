@@ -11,7 +11,8 @@ import java.io.InputStream;
 
 // sqlSessionFactory --> sqlsession
 public class MybatisUtils {
-    private static SqlSessionFactory sqlSessionFactory=null;
+    private static SqlSessionFactory sqlSessionFactory = null;
+
     static {
         String resource = "mybatis-config.xml";
         InputStream inputStream = null;
@@ -20,13 +21,14 @@ public class MybatisUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        sqlSessionFactory= new SqlSessionFactoryBuilder().build(inputStream);
+        sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
     }
+
     //从sqlSessionFactory 中获取sqlsession的实例
     //sqlsession 完全包含了面向数据库执行sql命令的所有方法
-    public static SqlSession getSqlSession(){
+    public static SqlSession getSqlSession() {
         //自动提交事务
-        return  sqlSessionFactory.openSession();
+        return sqlSessionFactory.openSession();
     }
 
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface StudentMapper {
     List<Student> getStudentList();
-//   联表查询
+
+    //   联表查询
     List<Student> getStudentTeacher();
 }

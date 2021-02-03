@@ -10,5 +10,5 @@ public interface BlogMAapper {
 
     int addBlog(Blog blog);
 
-    List<Blog> blogList(Map<String,String> map);
+    List<Blog> blogList(Map<String, String> map);
 }

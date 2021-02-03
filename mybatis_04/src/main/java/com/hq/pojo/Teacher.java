@@ -8,7 +8,9 @@ public class Teacher {
     private String name;
     private List<Student> students;
 
-    public Teacher() { }
+    public Teacher() {
+    }
+
     public Teacher(int id, String name, List<Student> students) {
         this.id = id;
         this.name = name;

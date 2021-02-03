@@ -8,7 +8,7 @@ public class Blog {
     private String title;
     private String author;
     private String content;
-    private Date  createtime;
+    private Date createtime;
     private int views;
 
     public Blog() {

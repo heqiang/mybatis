@@ -11,7 +11,7 @@ import java.util.List;
 
 public class StudentTest {
     @Test
-    public void  getAllTeacher(){
+    public void getAllTeacher() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         try {
             StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
@@ -19,9 +19,9 @@ public class StudentTest {
             for (Student stu : allTeacher) {
                 System.out.println(stu.getTeacher().getName());
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
-        }finally {
+        } finally {
             sqlSession.close();
         }
     }
